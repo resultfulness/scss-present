@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>SCSS</title>
+  </head>
+  <body>
+    <button class="back"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="slide-counter"></div>
+    <section class="title slide center">
+      <h1>SCSS</h1>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Sass</h1>
+      </header>
+      <div class="split-in-two">
+        <div class="scss">
+          <h2>SCSS</h2>
+          <pre
+            class="language-scss"
+            tabindex="0"
+          ><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">button-base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">typography</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">@include</span> <span class="token function">ripple-surface</span><span class="token punctuation">;</span>
+  <span class="token keyword">@include</span> <span class="token function">ripple-radius-bounded</span><span class="token punctuation">;</span>
+
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-flex<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$button-height</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+
+  <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span> <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+  <span class="token selector"><span class="token parent important">&amp;</span>:disabled </span><span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$mdc-button-disabled-ink-color</span><span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> default<span class="token punctuation">;</span>
+    <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        </div>
+        <div class="sass">
+          <h2>Sass</h2>
+          <pre
+            class="language-sass"
+            tabindex="0"
+          ><code class="language-sass"><span class="token atrule-line"><span class="token atrule">@mixin</span> button-base<span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> typography<span class="token punctuation">(</span><span class="token text">button</span><span class="token punctuation">)</span></span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> ripple-surface</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> ripple-radius-bounded</span>
+
+<span class="token property-line">  <span class="token property">display</span><span class="token punctuation">:</span> inline-flex</span>
+<span class="token property-line">  <span class="token property">position</span><span class="token punctuation">:</span> relative</span>
+<span class="token property-line">  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$button-height</span></span>
+<span class="token property-line">  <span class="token property">border</span><span class="token punctuation">:</span> none</span>
+<span class="token property-line">  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle</span>
+
+<span class="token property-line">  <span class="token parent important">&amp;</span><span class="token punctuation">:</span><span class="token selector">hover</span></span>
+<span class="token property-line">    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer</span>
+
+<span class="token property-line">  <span class="token parent important">&amp;</span><span class="token punctuation">:</span><span class="token selector">disabled</span></span>
+<span class="token property-line">    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$mdc-button-disabled-ink-color</span></span>
+<span class="token property-line">    <span class="token property">cursor</span><span class="token punctuation">:</span> default</span>
+<span class="token property-line">    <span class="token property">pointer-events</span><span class="token punctuation">:</span> none</span>
+</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Nesting</h1>
+      </header>
+      <div class="split-in-two">
+        <div class="scss">
+          <h2>SCSS</h2>
+          <pre
+            class="language-scss"
+            tabindex="0"
+          ><code class="language-scss"><span class="token selector">nav </span><span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #111<span class="token punctuation">;</span>
+
+  <span class="token selector">ul </span><span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+
+    <span class="token selector">li </span><span class="token punctuation">{</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+
+      <span class="token comment">// parent selector</span>
+
+      <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+        <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+        <div class="css">
+          <h2>CSS</h2>
+          <pre
+            class="language-css"
+            tabindex="0"
+          ><code class="language-css"><span class="token selector">nav </span><span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #111<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">nav ul </span><span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">nav ul li </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">nav ul li:hover </span><span class="token punctuation">{</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Nesting selector combinators</h1>
+      </header>
+      <div class="split-in-two">
+        <div class="scss">
+          <h2>SCSS</h2>
+          <pre
+            class="language-scss"
+            tabindex="0"
+          ><code class="language-scss"><span class="token selector">ul &gt; </span><span class="token punctuation">{</span>
+  <span class="token selector">li </span><span class="token punctuation">{</span>
+    <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h2 </span><span class="token punctuation">{</span>
+  <span class="token selector">+ p </span><span class="token punctuation">{</span>
+    <span class="token property">border-top</span><span class="token punctuation">:</span> 1px solid gray<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+        <div class="css">
+          <h2>CSS</h2>
+          <pre
+            class="language-css"
+            tabindex="0"
+          ><code class="language-css"><span class="token selector">ul &gt; li </span><span class="token punctuation">{</span>
+  <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h2 + p </span><span class="token punctuation">{</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> 1px solid gray<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Rule nesting</h1>
+      </header>
+      <div class="split-in-two">
+        <div class="scss">
+          <h2>SCSS</h2>
+          <pre
+            class="language-scss"
+            tabindex="0"
+          ><code class="language-scss"><span class="token selector">.font-heading </span><span class="token punctuation">{</span>
+  <span class="token selector">font: </span><span class="token punctuation">{</span>
+    <span class="token property">family</span><span class="token punctuation">:</span> serif<span class="token punctuation">;</span>
+    <span class="token property">size</span><span class="token punctuation">:</span> 1.35rem<span class="token punctuation">;</span>
+    <span class="token property">weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+        <div class="css">
+          <h2>CSS</h2>
+          <pre
+            class="language-css"
+            tabindex="0"
+          ><code class="language-css"><span class="token selector">.font-heading </span><span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> serif<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.35rem<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Parent selector for naming</h1>
+      </header>
+      <div class="split-in-two">
+        <div class="scss">
+          <h2>SCSS</h2>
+          <pre
+            class="language-scss"
+            tabindex="0"
+          ><code class="language-scss"><span class="token selector">.card </span><span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4rem<span class="token punctuation">;</span>
+
+  <span class="token selector"><span class="token parent important">&amp;</span>__title </span><span class="token punctuation">{</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector"><span class="token parent important">&amp;</span>__text </span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 80ch<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+        <div class="css">
+          <h2>CSS</h2>
+          <pre
+            class="language-css"
+            tabindex="0"
+          ><code class="language-css"><span class="token selector">.card </span><span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.card__title </span><span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.card__text </span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 80ch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Variables</h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token property"><span class="token variable">$color-primary</span></span><span class="token punctuation">:</span> #8839ef<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$border-dark</span></span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token variable">$color-primary</span><span class="token punctuation">,</span> 0.8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token selector">button </span><span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token variable">$border-dark</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token selector">.circle </span><span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$size</span></span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$size</span> <span class="token operator">*</span> 0.5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@mixin</code> and <code>@include</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">clear-margin-and-padding </span><span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@mixin</span> <span class="token function">reset-list </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">clear-margin-and-padding</span><span class="token punctuation">;</span>
+
+  <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">ul#products </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">reset-list</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@mixin</code> with arguments</h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">icon</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token property"><span class="token variable">$width</span></span><span class="token punctuation">:</span> 16px<span class="token punctuation">,</span> <span class="token property"><span class="token variable">$height</span></span><span class="token punctuation">:</span> 16px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token selector">.icon-<span class="token variable">#{$name}</span> </span><span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url</span><span class="token punctuation">(</span><span class="token string">"/icons/#{$name}.svg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$width</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@include</span> <span class="token function">icon</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">@include</span> <span class="token function">icon</span><span class="token punctuation">(</span><span class="token string">"youtube"</span><span class="token punctuation">,</span> 32px<span class="token punctuation">,</span> 32px<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@if</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">icon</span><span class="token punctuation">(</span><span class="token variable">$size</span><span class="token punctuation">,</span> <span class="token property"><span class="token variable">$is-circle</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$is-circle</span> </span><span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$size</span> <span class="token operator">/</span> 2<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.icon-circle </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">icon</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> <span class="token property"><span class="token variable">$circle</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.icon-square </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">icon</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> <span class="token property"><span class="token variable">$circle</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@if</code> + <code>@else</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">theme</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$dark-theme</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$dark-theme</span> </span><span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">@else</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.card </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">theme</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$dark-theme</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@each</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token property"><span class="token variable">$sizes</span></span><span class="token punctuation">:</span> 40px<span class="token punctuation">,</span> 50px<span class="token punctuation">,</span> 80px<span class="token punctuation">;</span>
+
+<span class="token keyword">@each</span> <span class="token selector"><span class="token variable">$size</span> in <span class="token variable">$sizes</span> </span><span class="token punctuation">{</span>
+  <span class="token selector">.icon-<span class="token variable">#{$size}</span> </span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@for</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> 1 <span class="token keyword">through</span> <span class="token selector">3 </span><span class="token punctuation">{</span>
+  <span class="token selector">.img-container img </span><span class="token punctuation">{</span>
+    <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">brightness</span><span class="token punctuation">(</span>0.15 <span class="token operator">*</span> <span class="token variable">$i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+        <pre><code><span class="token keyword">through</span> for inclusive range
+<span class="token keyword">to</span> for exclusive range</code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@function</code> for computing expressions</h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@function</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token variable">$base</span><span class="token punctuation">,</span> <span class="token variable">$exp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$res</span></span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+  <span class="token keyword">@for</span> <span class="token variable">$_</span> <span class="token keyword">from</span> 1 <span class="token keyword">through</span> <span class="token selector"><span class="token variable">$exp</span> </span><span class="token punctuation">{</span>
+    <span class="token property"><span class="token variable">$res</span></span><span class="token punctuation">:</span> <span class="token variable">$res</span> <span class="token operator">*</span> <span class="token variable">$base</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">@return</span> <span class="token variable">$res</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.bar </span><span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token function">pow</span><span class="token punctuation">(</span>2<span class="token punctuation">,</span> 6<span class="token punctuation">)</span> <span class="token operator">*</span> 1px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>any number of arguments</h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token variable">$nums</span>...<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$sum</span></span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token keyword">@each</span> <span class="token selector"><span class="token variable">$n</span> in <span class="token variable">$nums</span> </span><span class="token punctuation">{</span>
+    <span class="token property"><span class="token variable">$sum</span></span><span class="token punctuation">:</span> <span class="token variable">$sum</span> <span class="token operator">+</span> <span class="token variable">$n</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">@return</span> <span class="token variable">$sum</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.small </span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">sum</span><span class="token punctuation">(</span>10px<span class="token punctuation">,</span> 50px<span class="token punctuation">,</span> 30px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1><code>@extend</code> for inheriting rules</h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token selector">.card </span><span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
+  <span class="token property">margin-inline</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.card-new </span><span class="token punctuation">{</span>
+  <span class="token keyword">@extend</span> .card<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #ffbbbb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Placeholder selectors - "abstract" rulesets to inherit from</h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token selector"><span class="token placeholder">%button</span> </span><span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.button-accept </span><span class="token punctuation">{</span>
+  <span class="token keyword">@extend</span> <span class="token placeholder selector">%button</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #00ff00<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Debugging: <code>@error</code> and <code>@warn</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">shadow</span><span class="token punctuation">(</span><span class="token variable">$opacity</span><span class="token punctuation">,</span> <span class="token variable">$blur</span><span class="token punctuation">,</span> <span class="token variable">$offset</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$opacity</span> &lt;= 0 or <span class="token variable">$opacity</span> &gt; 1 </span><span class="token punctuation">{</span>
+    <span class="token keyword">@error</span> <span class="token string">"Opacity should be within 0 and 1, got <span class="token variable">#{$opacity}</span>"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$offset</span> == 0 </span><span class="token punctuation">{</span>
+    <span class="token keyword">@warn</span> <span class="token string">"box shadow offset was set at 0"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$offset</span> <span class="token variable">$offset</span> <span class="token variable">$blur</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> <span class="token variable">$opacity</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>Debugging: <code>@debug</code></h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token property"><span class="token variable">$value1</span></span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$value2</span></span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$expr</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>2 <span class="token operator">*</span> <span class="token variable">$value1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token variable">$value2</span><span class="token punctuation">;</span>
+<span class="token keyword">@debug</span> <span class="token string">"expression equals #{$expr}"</span><span class="token punctuation">;</span></code></pre>
+        <pre><code><span class="token comment">example output
+src/style.scss:225 Debug: expression equals 33px
+</span></code></pre>
+      </div>
+    </section>
+    <section class="slide">
+      <header>
+        <h1>
+          Loading from other stylesheets with <code>@use</code> and
+          <code>@forward</code>
+        </h1>
+      </header>
+      <div class="center">
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token comment">// src/_list.scss</span>
+<span class="token keyword">@mixin</span> <span class="token selector">list-reset </span><span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token comment">// utils.scss</span>
+<span class="token keyword">@forward</span> <span class="token string">"src/list"</span><span class="token punctuation">;</span>
+</code></pre>
+
+        <pre
+          class="language-scss"
+          tabindex="0"
+        ><code class="language-scss"><span class="token comment">// styles.scss</span>
+<span class="token keyword">@use</span> <span class="token string">"utils"</span><span class="token punctuation">;</span>
+
+<span class="token selector">li </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> utils.list-reset<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      </div>
+    </section>
+    <section class="credits slide">
+      <header>
+        <h1>Sourcecode and credits</h1>
+      </header>
+      <div class="credits center">
+        <a href="https://github.com/resultfulness/scss-present"
+          ><i class="fa-brands fa-github"></i> see sourcecode on github</a
+        >
+        <a href="https://sass-lang.com/documentation/" class="link-sass"
+          ><i class="fa-brands fa-sass"></i> sass/scss documentation</a
+        >
+        <a href="https://fontawesome.com" class="link-fa"
+          ><i class="fa-solid fa-font-awesome"></i> font awesome</a
+        >
+        <a href="https://prismjs.com/test.html">
+          prismjs, online tool for styling code in html
+        </a>
+        <a href="https://rosepinetheme.com/" class="link-theme"
+          >Rosé pine theme</a
+        >
+        built with vite, typescript, and scss
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
